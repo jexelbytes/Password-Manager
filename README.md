@@ -1,5 +1,5 @@
 
-<h1 align="center">Password-Manager</h1>
+<h1 align="center">Boveda Password-Manager</h1>
 
 Boveda es un simple, practico y ligero administrador de contraseñas, con el podras almacenar y organizar tus contraseñas, esto te permite utilizar claves mas extensas para mejorar la seguridad de tus cuentas.
 
