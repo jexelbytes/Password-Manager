@@ -16,8 +16,6 @@ namespace Password_Manager
 
         int lblIndex = 20;
 
-        private string pas = "";
-
         public Form1()
         {
             InitializeComponent();
@@ -55,8 +53,9 @@ namespace Password_Manager
             }
 
             userKey.Focus();
-            
-            pas = "";
+
+            thisUser.setPasOnRunTime("");
+
             ListaItems.Controls.Clear();
             
             LogOut.Enabled = false;
@@ -131,6 +130,8 @@ namespace Password_Manager
                 panelRegistro.Enabled = false;
                 panelRegistro.Visible = false;
                 guardarPath(directorioArchivoPass.Text);
+                userKeyR.Text = "";
+                userKeyRv.Text = "";
                 fileExiste();
             }
             else
@@ -165,7 +166,7 @@ namespace Password_Manager
         {
             if (thisUser.userLogin(userKey.Text, ruta.Text))
             {
-                pas = userKey.Text;
+                thisUser.setPasOnRunTime(userKey.Text);
                 userKey.Text = "";
                 boveda.Visible = true;
                 boveda.Enabled = true;
@@ -204,7 +205,7 @@ namespace Password_Manager
         {
             ListaItems.Controls.Clear();
 
-            List<key_item> keyList = thisUser.getKeyList(pas);
+            List<key_item> keyList = thisUser.getKeyList(thisUser.getPasOnRunTime());
 
             if (keyList.Count < 1)
             {
@@ -349,7 +350,7 @@ namespace Password_Manager
             }
             
             timer2.Enabled = true;
-            Clipboard.SetText(thisUser.getKey(service,description, pas));
+            Clipboard.SetText(thisUser.getKey(service,description, thisUser.getPasOnRunTime()));
             estado.Text = "clave copiada";
         }
 
@@ -371,6 +372,15 @@ namespace Password_Manager
             LogOut.Enabled = !LogOut.Enabled;
 
             max = Lista.Width - 1;
+
+            if (Nuevo.Text == "Nuevo")
+            {
+                Nuevo.Text = "Cancelar";
+            }
+            else
+            {
+                Nuevo.Text = "Nuevo";
+            }
 
             timer1.Enabled = true;
         }
@@ -439,7 +449,7 @@ namespace Password_Manager
                         item.Key = itemClave.Text;
                         item.optional = itemDescripcion.Text;
 
-                        if (thisUser.addKeyItem(item, pas))
+                        if (thisUser.addKeyItem(item, thisUser.getPasOnRunTime()))
                         {
                             comboBox1.Text = "";
                             itemClave.Text = "";
@@ -508,7 +518,7 @@ namespace Password_Manager
 
             foreach (int x in index)
             {
-                if (thisUser.removeKeyItemAt(x - ajuste, pas))
+                if (thisUser.removeKeyItemAt(x - ajuste, thisUser.getPasOnRunTime()))
                 {
                     ajuste++;
                     MessageBox.Show("Se borró el item!","Exito");
@@ -585,11 +595,6 @@ namespace Password_Manager
             }
         }
 
-        private void itemDescripcion_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -600,11 +605,6 @@ namespace Password_Manager
             {
                 pictureBox3.BackgroundImage = Resources.Internet;
             }
-        }
-
-        private void Lista_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void comboBox1_TextChanged(object sender, EventArgs e)

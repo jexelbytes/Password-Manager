@@ -4,19 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Password_Manager
 {
     internal class seguridad
     {
-        public string ComputeHash(string sSourceData)
-        {
-            byte[] tmpSource = ASCIIEncoding.ASCII.GetBytes(sSourceData);
+        Random rand = new Random();
 
-            byte[] tmpHash = new MD5CryptoServiceProvider().ComputeHash(tmpSource);
-
-            return Convert.ToBase64String(tmpHash);
-        }
 
         public string encriptar(string cas, string hash)
         {
@@ -25,11 +20,22 @@ namespace Password_Manager
             MD5 md5 = MD5.Create();
             TripleDES tripleDES = TripleDES.Create();
 
-            tripleDES.Key = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+            byte[] tmpSource = ASCIIEncoding.ASCII.GetBytes(hash);
+
+            byte[] tmpHash = new MD5CryptoServiceProvider().ComputeHash(tmpSource);
+
+            rand.NextBytes(tmpSource);
+
+            tripleDES.Key = tmpHash;
+
+            rand.NextBytes(tmpHash);
+
             tripleDES.Mode = CipherMode.ECB;
 
             ICryptoTransform transform = tripleDES.CreateEncryptor();
             byte[] result = transform.TransformFinalBlock(data, 0, data.Length);
+
+            rand.NextBytes(data);
 
             return Convert.ToBase64String(result);
         }
@@ -40,13 +46,49 @@ namespace Password_Manager
             MD5 md5 = MD5.Create();
             TripleDES tripleDES = TripleDES.Create();
 
-            tripleDES.Key = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+            byte[] tmpSource = ASCIIEncoding.ASCII.GetBytes(hash);
+
+            byte[] tmpHash = new MD5CryptoServiceProvider().ComputeHash(tmpSource);
+
+            rand.NextBytes(tmpSource);
+
+            tripleDES.Key = tmpHash;
+
+            rand.NextBytes(tmpHash);
+
             tripleDES.Mode = CipherMode.ECB;
 
             ICryptoTransform transform = tripleDES.CreateDecryptor();
             byte[] result = transform.TransformFinalBlock(data, 0, data.Length);
 
-            return UTF8Encoding.UTF8.GetString(result);
+
+            rand.NextBytes(data);
+
+            string res = UTF8Encoding.UTF8.GetString(result);
+
+            rand.NextBytes(result);
+
+            return res;
+        }
+        public string ComputeHash(string sSourceData)
+        {
+            byte[] tmpSource = Encoding.UTF8.GetBytes(sSourceData);
+
+            byte[] hash = new SHA512Managed().ComputeHash(tmpSource);
+
+            rand.NextBytes(tmpSource);
+
+            return Convert.ToBase64String(hash);
+        }
+        public string ComputeMD5(string sSourceData)
+        {
+            byte[] tmpSource = Encoding.UTF8.GetBytes(sSourceData);
+
+            byte[] hash = new MD5CryptoServiceProvider().ComputeHash(tmpSource);
+
+            rand.NextBytes(tmpSource);
+
+            return Convert.ToBase64String(hash);
         }
     }
 }

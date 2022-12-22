@@ -463,7 +463,6 @@
             this.Lista.Name = "Lista";
             this.Lista.Size = new System.Drawing.Size(611, 450);
             this.Lista.TabIndex = 1;
-            this.Lista.Paint += new System.Windows.Forms.PaintEventHandler(this.Lista_Paint);
             // 
             // LateralPanel
             // 
@@ -640,7 +639,6 @@
             this.itemDescripcion.Name = "itemDescripcion";
             this.itemDescripcion.Size = new System.Drawing.Size(456, 23);
             this.itemDescripcion.TabIndex = 4;
-            this.itemDescripcion.TextChanged += new System.EventHandler(this.itemDescripcion_TextChanged);
             // 
             // itemClave
             // 

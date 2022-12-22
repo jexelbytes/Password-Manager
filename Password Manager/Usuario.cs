@@ -11,10 +11,14 @@ namespace Password_Manager
     internal class Usuario
     {
         private string masterKEY = "escribe tu clave aca!";
+        
         public string path { get; set; }
+        
         private string userPassword { get; set; }
         
         private string key_items { get; set; }
+
+        private string pasRunTime { get; set; }
 
         public bool userCreate(string pas, string path)
         {
@@ -152,6 +156,7 @@ namespace Password_Manager
             seguridad encode = new seguridad();
             string tmp = "";
 
+
             try
             {
                 tmp = encode.desencriptar(key_items, pas);
@@ -160,7 +165,7 @@ namespace Password_Manager
             {
                 throw;
             }
-            
+
             try
             {
                 keyList = JsonConvert.DeserializeObject<List<key_item>>(tmp);
@@ -241,6 +246,20 @@ namespace Password_Manager
             }
 
             return key;
+        }
+
+        public string getPasOnRunTime()
+        {
+            seguridad seg = new seguridad();
+
+            return seg.desencriptar(pasRunTime, masterKEY);
+        }
+        
+        public void setPasOnRunTime(string password)
+        {
+            seguridad seg = new seguridad();
+
+            pasRunTime = seg.encriptar(password, masterKEY);
         }
     }
 }
