@@ -459,6 +459,8 @@ namespace Password_Manager
                             max = Lista.Width - 1;
                             timer1.Enabled = true;
 
+                            Nuevo.Text = "Nuevo";
+
                             cargarKeys();
 
                             LogOut.Enabled = true;
