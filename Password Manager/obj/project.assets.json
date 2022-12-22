@@ -58,11 +58,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SAVES\\PROYECTOS\\C#\\Password Manager\\Password Manager.csproj",
+      "projectUniqueName": "D:\\SAVES\\PROYECTOS\\C#\\Password Manager\\Password Manager\\Password Manager.csproj",
       "projectName": "Password Manager",
-      "projectPath": "D:\\SAVES\\PROYECTOS\\C#\\Password Manager\\Password Manager.csproj",
+      "projectPath": "D:\\SAVES\\PROYECTOS\\C#\\Password Manager\\Password Manager\\Password Manager.csproj",
       "packagesPath": "C:\\Users\\jexel\\.nuget\\packages\\",
-      "outputPath": "D:\\SAVES\\PROYECTOS\\C#\\Password Manager\\obj\\",
+      "outputPath": "D:\\SAVES\\PROYECTOS\\C#\\Password Manager\\Password Manager\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Programs\\VS\\Componentes, herramientas y SDK\\NuGetPackages"
