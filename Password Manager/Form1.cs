@@ -8,9 +8,9 @@ namespace Password_Manager
 {
     public partial class Form1 : Form
     {
-        string archivoListaDeUsuarios = "adfga.txt";
+        string fileLastPath = "adfga.txt";
 
-        Usuario thisVault = new Usuario();
+        Usuario thisUser = new Usuario();
 
         Form BandejaDesplegable = new notify_tray();
 
@@ -27,7 +27,7 @@ namespace Password_Manager
 
         private void fileExiste()
         {
-            if (File.Exists(archivoListaDeUsuarios))
+            if (File.Exists(fileLastPath))
             {
                 acceder();
             }
@@ -47,11 +47,11 @@ namespace Password_Manager
             this.Size = new System.Drawing.Size(539, 489);
             try
             {
-                ruta.Text = File.ReadAllText(archivoListaDeUsuarios);
+                ruta.Text = File.ReadAllText(fileLastPath);
             }
             catch (Exception)
             {
-                ruta.Text = "vaultdb";
+                ruta.Text = "\\vaultdb";
             }
 
             userKey.Focus();
@@ -80,7 +80,7 @@ namespace Password_Manager
 
         private void guardarPath(string path)
         {
-            File.WriteAllText(archivoListaDeUsuarios, path);
+            File.WriteAllText(fileLastPath, path);
         }
 
         // ***************************************************************************************** REGISTRO
@@ -163,7 +163,7 @@ namespace Password_Manager
         //************************************************************************************ INICIO DE SESION
         private void Acceder_Click(object sender, EventArgs e)
         {
-            if (thisVault.userLogin(userKey.Text, ruta.Text))
+            if (thisUser.userLogin(userKey.Text, ruta.Text))
             {
                 pas = userKey.Text;
                 userKey.Text = "";
@@ -173,7 +173,7 @@ namespace Password_Manager
                 boveda.Dock = DockStyle.Fill;
                 cargarKeys();
                 this.Size = new System.Drawing.Size(816, 489);
-                thisVault.path = ruta.Text;
+                thisUser.path = ruta.Text;
 
                 LateralPanel.Dock = DockStyle.Right;
                 LateralPanel.Width = 0;
@@ -204,7 +204,7 @@ namespace Password_Manager
         {
             ListaItems.Controls.Clear();
 
-            List<key_item> keyList = thisVault.getKeyList(pas);
+            List<key_item> keyList = thisUser.getKeyList(pas);
 
             if (keyList.Count < 1)
             {
@@ -343,13 +343,13 @@ namespace Password_Manager
         {
             tmpTime = (trackBar2.Value * 5) * 1000;
             
-            if (exit < tmpTime)
+            if (exit < tmpTime/1000)
             {
-                exit = tmpTime + 10;
+                exit = trackBar2.Value * 5 + 1;
             }
             
             timer2.Enabled = true;
-            Clipboard.SetText(thisVault.getKey(service,description, pas));
+            Clipboard.SetText(thisUser.getKey(service,description, pas));
             estado.Text = "clave copiada";
         }
 
@@ -439,7 +439,7 @@ namespace Password_Manager
                         item.Key = itemClave.Text;
                         item.optional = itemDescripcion.Text;
 
-                        if (thisVault.addKeyItem(item, pas))
+                        if (thisUser.addKeyItem(item, pas))
                         {
                             comboBox1.Text = "";
                             itemClave.Text = "";
@@ -508,7 +508,7 @@ namespace Password_Manager
 
             foreach (int x in index)
             {
-                if (thisVault.removeKeyItemAt(x - ajuste, pas))
+                if (thisUser.removeKeyItemAt(x - ajuste, pas))
                 {
                     ajuste++;
                     MessageBox.Show("Se borró el item!","Exito");
