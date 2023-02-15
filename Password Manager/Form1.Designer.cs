@@ -928,7 +928,7 @@
             this.BovedaIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("BovedaIcon.Icon")));
             this.BovedaIcon.Text = "Boveda";
             this.BovedaIcon.Visible = true;
-            this.BovedaIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            this.BovedaIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BovedaIcon_MouseClick);
             // 
             // contextMenuStrip1
             // 
@@ -965,6 +965,7 @@
             this.MinimumSize = new System.Drawing.Size(400, 489);
             this.Name = "Form1";
             this.Text = "Boveda";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.loginPage.ResumeLayout(false);
             this.loginPage.PerformLayout();

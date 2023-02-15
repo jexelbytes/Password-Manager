@@ -13,6 +13,10 @@ namespace Password_Manager
 
         string START_MINIMIZED_FILE_PATH = AppDomain.CurrentDomain.BaseDirectory.ToString() + "SM.txt";
 
+        string RUN_ON_STARTUP_STATE = AppDomain.CurrentDomain.BaseDirectory.ToString() + "RS.txt";
+
+        string ICONS_FOLDER_PATH = AppDomain.CurrentDomain.BaseDirectory.ToString() + "icons/";
+
         Usuario thisUser = new Usuario();
 
         Form BandejaDesplegable = new notify_tray();
@@ -32,9 +36,19 @@ namespace Password_Manager
 
         private void fileExiste()
         {
+            if (File.Exists(START_MINIMIZED_FILE_PATH))
+            {
+                startMincheckBox.Checked = true;
+            }
+
+            if (File.Exists(RUN_ON_STARTUP_STATE))
+            {
+                startWincheckBox.Checked = true;
+            }
+
             if (File.Exists(fileLastPath))
             {
-                acceder();
+                goToAccederPage();
             }
             else
             {
@@ -64,7 +78,7 @@ namespace Password_Manager
             Toggle = !Toggle;
         }
 
-        private void acceder()
+        private void goToAccederPage()
         {
             loginPage.Visible = true;
             loginPage.Dock = DockStyle.Fill;
@@ -83,7 +97,10 @@ namespace Password_Manager
 
             userKey.Focus();
 
+            thisUser.setPasOnRunTime("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
             thisUser.setPasOnRunTime("");
+
+            thisUser = new Usuario();
 
             ListaItems.Controls.Clear();
             
@@ -164,7 +181,7 @@ namespace Password_Manager
             }
             else
             {
-                MessageBox.Show("F", "F");
+                MessageBox.Show("Error al crear el usuario", "Error");
             }
         }
 
@@ -225,7 +242,7 @@ namespace Password_Manager
 
         private void label12_Click(object sender, EventArgs e)
         {
-            acceder();
+            goToAccederPage();
         }
 
         //************************************************************************************************ VAULT
@@ -274,7 +291,7 @@ namespace Password_Manager
             
             try
             {
-                ico.BackgroundImage = Image.FromFile("icons/" + item.Service + ".png");
+                ico.BackgroundImage = Image.FromFile(ICONS_FOLDER_PATH + item.Service + ".png");
             }
             catch (Exception)
             {
@@ -614,7 +631,7 @@ namespace Password_Manager
             {
                 label20.Text = "60";
                 exit = 60;
-                acceder();
+                goToAccederPage();
             }
         }
 
@@ -656,11 +673,6 @@ namespace Password_Manager
             }
         }
 
-        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            toggleHIDE();
-        }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
@@ -683,12 +695,14 @@ namespace Password_Manager
             if (enable)
             {
                 reg.SetValue("Boveda", Application.ExecutablePath.ToString());
+                File.WriteAllText(RUN_ON_STARTUP_STATE, "");
             }
             else
             {
                 try
                 {
                     reg.DeleteValue("Boveda");
+                    File.Delete(RUN_ON_STARTUP_STATE);
                 }
                 catch (Exception)
                 {
@@ -708,6 +722,18 @@ namespace Password_Manager
             {
                 File.Delete(START_MINIMIZED_FILE_PATH);
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            toggleHIDE();
+            goToAccederPage();
+        }
+
+        private void BovedaIcon_MouseClick(object sender, MouseEventArgs e)
+        {
+            toggleHIDE();
         }
     }
 }
