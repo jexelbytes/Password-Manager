@@ -82,6 +82,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Menu = new System.Windows.Forms.Panel();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.startMincheckBox = new System.Windows.Forms.CheckBox();
+            this.startWincheckBox = new System.Windows.Forms.CheckBox();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.label19 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -93,6 +95,10 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.LogOut = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.BovedaIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.togleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panelRegistro.SuspendLayout();
@@ -105,6 +111,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // loginPage
@@ -140,7 +147,7 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(20)))), ((int)(((byte)(134)))));
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.button1.Location = new System.Drawing.Point(726, 177);
             this.button1.Name = "button1";
@@ -158,7 +165,7 @@
             this.Acceder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(20)))), ((int)(((byte)(134)))));
             this.Acceder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.Acceder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Acceder.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Acceder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Acceder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Acceder.Location = new System.Drawing.Point(-14, 324);
             this.Acceder.Name = "Acceder";
@@ -171,33 +178,33 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label9.Location = new System.Drawing.Point(8, 212);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(172, 21);
+            this.label9.Size = new System.Drawing.Size(154, 20);
             this.label9.TabIndex = 6;
             this.label9.Text = "Contraseña maestra";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label10.Location = new System.Drawing.Point(44, 177);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(136, 21);
+            this.label10.Size = new System.Drawing.Size(120, 20);
             this.label10.TabIndex = 7;
             this.label10.Text = "Ruta de archivo";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.label3.Location = new System.Drawing.Point(12, 298);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 17);
+            this.label3.Size = new System.Drawing.Size(75, 15);
             this.label3.TabIndex = 8;
             this.label3.Text = "Crear Nuevo";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -205,11 +212,11 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label11.Location = new System.Drawing.Point(12, 47);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(233, 36);
+            this.label11.Size = new System.Drawing.Size(217, 33);
             this.label11.TabIndex = 8;
             this.label11.Text = "Inicio de sesion";
             // 
@@ -259,11 +266,11 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.label12.Location = new System.Drawing.Point(727, 424);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(61, 17);
+            this.label12.Size = new System.Drawing.Size(51, 15);
             this.label12.TabIndex = 9;
             this.label12.Text = "Acceder";
             this.label12.Click += new System.EventHandler(this.label12_Click);
@@ -275,7 +282,7 @@
             this.atras1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(20)))), ((int)(((byte)(134)))));
             this.atras1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.atras1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.atras1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.atras1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.atras1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.atras1.Location = new System.Drawing.Point(800, 0);
             this.atras1.Name = "atras1";
@@ -292,7 +299,7 @@
             this.seleccionarDirectorioArchivoPass.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(20)))), ((int)(((byte)(134)))));
             this.seleccionarDirectorioArchivoPass.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.seleccionarDirectorioArchivoPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.seleccionarDirectorioArchivoPass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.seleccionarDirectorioArchivoPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.seleccionarDirectorioArchivoPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.seleccionarDirectorioArchivoPass.Location = new System.Drawing.Point(1422, 200);
             this.seleccionarDirectorioArchivoPass.Name = "seleccionarDirectorioArchivoPass";
@@ -309,7 +316,7 @@
             this.crearNuevoUsuario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(20)))), ((int)(((byte)(134)))));
             this.crearNuevoUsuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.crearNuevoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.crearNuevoUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.crearNuevoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.crearNuevoUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.crearNuevoUsuario.Location = new System.Drawing.Point(1118, 332);
             this.crearNuevoUsuario.Name = "crearNuevoUsuario";
@@ -325,7 +332,7 @@
             this.Siguiente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(20)))), ((int)(((byte)(134)))));
             this.Siguiente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.Siguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Siguiente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Siguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Siguiente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Siguiente.Location = new System.Drawing.Point(311, 332);
             this.Siguiente.Name = "Siguiente";
@@ -338,44 +345,44 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label8.Location = new System.Drawing.Point(938, 162);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(552, 21);
+            this.label8.Size = new System.Drawing.Size(499, 20);
             this.label8.TabIndex = 1;
             this.label8.Text = "Seleccione el directorio donde se guardara su archivo de contraseñas";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label6.Location = new System.Drawing.Point(940, 205);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 21);
+            this.label6.Size = new System.Drawing.Size(77, 20);
             this.label6.TabIndex = 1;
             this.label6.Text = "Directorio";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label5.Location = new System.Drawing.Point(68, 230);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(167, 21);
+            this.label5.Size = new System.Drawing.Size(151, 20);
             this.label5.TabIndex = 1;
             this.label5.Text = "Verificar contraseña";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label1.Location = new System.Drawing.Point(55, 148);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(684, 21);
+            this.label1.Size = new System.Drawing.Size(611, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Indique la contraseña maestra, esta se usara cada vez que necesite acceder a la a" +
     "pp";
@@ -383,11 +390,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label4.Location = new System.Drawing.Point(132, 195);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 21);
+            this.label4.Size = new System.Drawing.Size(92, 20);
             this.label4.TabIndex = 1;
             this.label4.Text = "Contraseña";
             // 
@@ -413,22 +420,22 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label7.Location = new System.Drawing.Point(1111, 47);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(198, 36);
+            this.label7.Size = new System.Drawing.Size(185, 33);
             this.label7.TabIndex = 1;
             this.label7.Text = "Ultimo ajuste";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label2.Location = new System.Drawing.Point(253, 48);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(307, 36);
+            this.label2.Size = new System.Drawing.Size(276, 33);
             this.label2.TabIndex = 1;
             this.label2.Text = "Creación de usuario";
             // 
@@ -504,11 +511,11 @@
             this.chOperadores.AutoSize = true;
             this.chOperadores.Checked = true;
             this.chOperadores.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chOperadores.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.chOperadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chOperadores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.chOperadores.Location = new System.Drawing.Point(428, 138);
             this.chOperadores.Name = "chOperadores";
-            this.chOperadores.Size = new System.Drawing.Size(103, 21);
+            this.chOperadores.Size = new System.Drawing.Size(99, 20);
             this.chOperadores.TabIndex = 10;
             this.chOperadores.Text = "Operadores";
             this.chOperadores.UseVisualStyleBackColor = true;
@@ -518,11 +525,11 @@
             this.chSignos.AutoSize = true;
             this.chSignos.Checked = true;
             this.chSignos.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chSignos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.chSignos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chSignos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.chSignos.Location = new System.Drawing.Point(255, 138);
             this.chSignos.Name = "chSignos";
-            this.chSignos.Size = new System.Drawing.Size(167, 21);
+            this.chSignos.Size = new System.Drawing.Size(155, 20);
             this.chSignos.TabIndex = 9;
             this.chSignos.Text = "Signos de puntuación";
             this.chSignos.UseVisualStyleBackColor = true;
@@ -532,11 +539,11 @@
             this.chLetras.AutoSize = true;
             this.chLetras.Checked = true;
             this.chLetras.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chLetras.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.chLetras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chLetras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.chLetras.Location = new System.Drawing.Point(95, 138);
             this.chLetras.Name = "chLetras";
-            this.chLetras.Size = new System.Drawing.Size(64, 21);
+            this.chLetras.Size = new System.Drawing.Size(63, 20);
             this.chLetras.TabIndex = 7;
             this.chLetras.Text = "Letras";
             this.chLetras.UseVisualStyleBackColor = true;
@@ -546,11 +553,11 @@
             this.chNumeros.AutoSize = true;
             this.chNumeros.Checked = true;
             this.chNumeros.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chNumeros.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.chNumeros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chNumeros.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.chNumeros.Location = new System.Drawing.Point(165, 138);
             this.chNumeros.Name = "chNumeros";
-            this.chNumeros.Size = new System.Drawing.Size(84, 21);
+            this.chNumeros.Size = new System.Drawing.Size(81, 20);
             this.chNumeros.TabIndex = 8;
             this.chNumeros.Text = "Numeros";
             this.chNumeros.UseVisualStyleBackColor = true;
@@ -652,22 +659,22 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label18.Location = new System.Drawing.Point(32, 96);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(57, 17);
+            this.label18.Size = new System.Drawing.Size(56, 16);
             this.label18.TabIndex = 0;
             this.label18.Text = "Servicio";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label17.Location = new System.Drawing.Point(32, 272);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(54, 17);
+            this.label17.Size = new System.Drawing.Size(54, 16);
             this.label17.TabIndex = 0;
             this.label17.Text = "Usuario";
             // 
@@ -685,44 +692,44 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label16.Location = new System.Drawing.Point(42, 243);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(47, 17);
+            this.label16.Size = new System.Drawing.Size(42, 16);
             this.label16.TabIndex = 0;
             this.label16.Text = "Clave";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label14.Location = new System.Drawing.Point(41, 9);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(103, 21);
+            this.label14.Size = new System.Drawing.Size(90, 20);
             this.label14.TabIndex = 0;
             this.label14.Text = "Nuevo Item";
             // 
             // estado
             // 
             this.estado.AutoSize = true;
-            this.estado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.estado.ForeColor = System.Drawing.Color.Black;
             this.estado.Location = new System.Drawing.Point(251, 9);
             this.estado.Name = "estado";
-            this.estado.Size = new System.Drawing.Size(55, 21);
+            this.estado.Size = new System.Drawing.Size(49, 20);
             this.estado.TabIndex = 0;
             this.estado.Text = "Vacio";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label15.ForeColor = System.Drawing.Color.Black;
             this.label15.Location = new System.Drawing.Point(6, 8);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(239, 22);
+            this.label15.Size = new System.Drawing.Size(218, 24);
             this.label15.TabIndex = 0;
             this.label15.Text = "Estado del portapapeles:";
             // 
@@ -755,6 +762,8 @@
             // 
             this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(24)))));
             this.Menu.Controls.Add(this.progressBar1);
+            this.Menu.Controls.Add(this.startMincheckBox);
+            this.Menu.Controls.Add(this.startWincheckBox);
             this.Menu.Controls.Add(this.trackBar2);
             this.Menu.Controls.Add(this.label19);
             this.Menu.Controls.Add(this.label13);
@@ -776,6 +785,32 @@
             this.progressBar1.TabIndex = 0;
             this.progressBar1.Value = 100;
             // 
+            // startMincheckBox
+            // 
+            this.startMincheckBox.AutoSize = true;
+            this.startMincheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.startMincheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.startMincheckBox.Location = new System.Drawing.Point(20, 174);
+            this.startMincheckBox.Name = "startMincheckBox";
+            this.startMincheckBox.Size = new System.Drawing.Size(132, 20);
+            this.startMincheckBox.TabIndex = 10;
+            this.startMincheckBox.Text = "Iniciar Minimizado";
+            this.startMincheckBox.UseVisualStyleBackColor = true;
+            this.startMincheckBox.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // startWincheckBox
+            // 
+            this.startWincheckBox.AutoSize = true;
+            this.startWincheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.startWincheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.startWincheckBox.Location = new System.Drawing.Point(21, 153);
+            this.startWincheckBox.Name = "startWincheckBox";
+            this.startWincheckBox.Size = new System.Drawing.Size(140, 20);
+            this.startWincheckBox.TabIndex = 10;
+            this.startWincheckBox.Text = "Iniciar con windows";
+            this.startWincheckBox.UseVisualStyleBackColor = true;
+            this.startWincheckBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // trackBar2
             // 
             this.trackBar2.Location = new System.Drawing.Point(0, 251);
@@ -790,33 +825,33 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label19.Location = new System.Drawing.Point(8, 135);
+            this.label19.Location = new System.Drawing.Point(17, 93);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(167, 51);
+            this.label19.Size = new System.Drawing.Size(156, 48);
             this.label19.TabIndex = 0;
             this.label19.Text = " Por seguridad boveda \r\nfinaliza su sesion al cabo\r\n          de 1 minuto";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label13.Location = new System.Drawing.Point(24, 205);
+            this.label13.Location = new System.Drawing.Point(29, 205);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(133, 34);
+            this.label13.Size = new System.Drawing.Size(124, 32);
             this.label13.TabIndex = 0;
             this.label13.Text = "Tiempo para borrar\r\n   el porta papeles";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Century Gothic", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label20.Location = new System.Drawing.Point(12, 9);
+            this.label20.Location = new System.Drawing.Point(18, -5);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(155, 115);
+            this.label20.Size = new System.Drawing.Size(151, 108);
             this.label20.TabIndex = 0;
             this.label20.Text = "60";
             this.label20.Click += new System.EventHandler(this.label20_Click);
@@ -824,11 +859,11 @@
             // tiempo
             // 
             this.tiempo.AutoSize = true;
-            this.tiempo.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tiempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tiempo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tiempo.Location = new System.Drawing.Point(0, 291);
             this.tiempo.Name = "tiempo";
-            this.tiempo.Size = new System.Drawing.Size(75, 44);
+            this.tiempo.Size = new System.Drawing.Size(79, 42);
             this.tiempo.TabIndex = 0;
             this.tiempo.Text = "10s";
             // 
@@ -887,6 +922,36 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // BovedaIcon
+            // 
+            this.BovedaIcon.ContextMenuStrip = this.contextMenuStrip1;
+            this.BovedaIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("BovedaIcon.Icon")));
+            this.BovedaIcon.Text = "Boveda";
+            this.BovedaIcon.Visible = true;
+            this.BovedaIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem,
+            this.togleToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(110, 48);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // togleToolStripMenuItem
+            // 
+            this.togleToolStripMenuItem.Name = "togleToolStripMenuItem";
+            this.togleToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.togleToolStripMenuItem.Text = "Toggle";
+            this.togleToolStripMenuItem.Click += new System.EventHandler(this.togleToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -918,6 +983,7 @@
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -986,5 +1052,11 @@
         private PictureBox pictureBox3;
         private Label estado;
         private PictureBox pictureBox4;
+        private NotifyIcon BovedaIcon;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem exitToolStripMenuItem;
+        private ToolStripMenuItem togleToolStripMenuItem;
+        private CheckBox startWincheckBox;
+        private CheckBox startMincheckBox;
     }
 }

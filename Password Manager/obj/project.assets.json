@@ -52,8 +52,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jexel\\.nuget\\packages\\": {},
-    "D:\\Programs\\VS\\Componentes, herramientas y SDK\\NuGetPackages": {}
+    "C:\\Users\\Jexel\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
@@ -61,14 +61,14 @@
       "projectUniqueName": "D:\\SAVES\\PROYECTOS\\C#\\Password Manager\\Password Manager\\Password Manager.csproj",
       "projectName": "Password Manager",
       "projectPath": "D:\\SAVES\\PROYECTOS\\C#\\Password Manager\\Password Manager\\Password Manager.csproj",
-      "packagesPath": "C:\\Users\\jexel\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Jexel\\.nuget\\packages\\",
       "outputPath": "D:\\SAVES\\PROYECTOS\\C#\\Password Manager\\Password Manager\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Programs\\VS\\Componentes, herramientas y SDK\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\jexel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jexel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -119,7 +119,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,14 +1,17 @@
 using System;
 using System.IO;
+using System.Windows.Forms.VisualStyles;
+using Microsoft.Win32;
 using Newtonsoft.Json;
 using Password_Manager.Properties;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Password_Manager
 {
     public partial class Form1 : Form
     {
-        string fileLastPath = "adfga.txt";
+        string fileLastPath = AppDomain.CurrentDomain.BaseDirectory.ToString() + "adfga.txt";
+
+        string START_MINIMIZED_FILE_PATH = AppDomain.CurrentDomain.BaseDirectory.ToString() + "SM.txt";
 
         Usuario thisUser = new Usuario();
 
@@ -16,9 +19,13 @@ namespace Password_Manager
 
         int lblIndex = 20;
 
+        bool Toggle = false;
+
         public Form1()
         {
             InitializeComponent();
+
+            startMinimized();
 
             fileExiste();
         }
@@ -33,6 +40,28 @@ namespace Password_Manager
             {
                 registrar();
             }
+        }
+
+        private void startMinimized()
+        {
+            if (File.Exists(START_MINIMIZED_FILE_PATH))
+            {
+                Toggle= true;
+                toggleHIDE();
+            }
+        }
+
+        private void toggleHIDE()
+        {
+            if (Toggle)
+            {
+                this.WindowState = FormWindowState.Minimized;
+            }else{
+                this.WindowState = FormWindowState.Normal;
+            }
+            this.ShowInTaskbar = !Toggle;
+
+            Toggle = !Toggle;
         }
 
         private void acceder()
@@ -126,7 +155,6 @@ namespace Password_Manager
 
             if (user.userCreate(userKeyR.Text, directorioArchivoPass.Text))
             {
-                MessageBox.Show("Exito", "Exito");
                 panelRegistro.Enabled = false;
                 panelRegistro.Visible = false;
                 guardarPath(directorioArchivoPass.Text);
@@ -363,6 +391,11 @@ namespace Password_Manager
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
+            claveLenthbuttonText();
+        }
+
+        private void claveLenthbuttonText()
+        {
             generarClave.Text = "Generar clave(" + trackBar1.Value + ")";
         }
 
@@ -370,6 +403,8 @@ namespace Password_Manager
         private void Nuevo_Click(object sender, EventArgs e)
         {
             LogOut.Enabled = !LogOut.Enabled;
+
+            claveLenthbuttonText();
 
             max = Lista.Width - 1;
 
@@ -618,6 +653,60 @@ namespace Password_Manager
             catch (Exception)
             {
                 pictureBox3.BackgroundImage = Resources.Internet;
+            }
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            toggleHIDE();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void togleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toggleHIDE();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            setStartWidthWindows(startWincheckBox.Checked);
+        }
+
+        private void setStartWidthWindows(bool enable)
+        {
+            RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+            if (enable)
+            {
+                reg.SetValue("Boveda", Application.ExecutablePath.ToString());
+            }
+            else
+            {
+                try
+                {
+                    reg.DeleteValue("Boveda");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error reg.DeleteValue", "Error");
+                    return;
+                }
+            }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (startMincheckBox.Checked)
+            {
+                File.WriteAllText(START_MINIMIZED_FILE_PATH, "OK");
+            }
+            else
+            {
+                File.Delete(START_MINIMIZED_FILE_PATH);
             }
         }
     }

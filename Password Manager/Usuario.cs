@@ -11,9 +11,9 @@ namespace Password_Manager
     internal class Usuario
     {
         private string masterKEY = "escribe tu clave aca!";
-        
+
         public string path { get; set; }
-        
+
         private string userPassword { get; set; }
         
         private string key_items { get; set; }
