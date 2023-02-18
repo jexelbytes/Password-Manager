@@ -67,15 +67,16 @@ namespace Password_Manager
 
         private void toggleHIDE()
         {
-            if (Toggle)
+            if (Toggle || this.WindowState == FormWindowState.Normal || this.WindowState == FormWindowState.Maximized)
             {
                 this.WindowState = FormWindowState.Minimized;
+                Toggle = false;
             }else{
                 this.WindowState = FormWindowState.Normal;
+                Toggle = true;
             }
-            this.ShowInTaskbar = !Toggle;
 
-            Toggle = !Toggle;
+            this.ShowInTaskbar = Toggle;
         }
 
         private void goToAccederPage()
@@ -731,7 +732,7 @@ namespace Password_Manager
             goToAccederPage();
         }
 
-        private void BovedaIcon_MouseClick(object sender, MouseEventArgs e)
+        private void BovedaIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             toggleHIDE();
         }

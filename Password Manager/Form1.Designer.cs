@@ -928,7 +928,7 @@
             this.BovedaIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("BovedaIcon.Icon")));
             this.BovedaIcon.Text = "Boveda";
             this.BovedaIcon.Visible = true;
-            this.BovedaIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BovedaIcon_MouseClick);
+            this.BovedaIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.BovedaIcon_MouseDoubleClick);
             // 
             // contextMenuStrip1
             // 
